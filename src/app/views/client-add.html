@@ -1,0 +1,41 @@
+<div class="col-lg-6">
+<h1>{{titulo}}</h1>
+<div *ngIf='alertMessage'>
+  <div class="alert alert-success">
+    {{alertMessage}}
+  </div>
+</div>
+<form #formClient='ngForm' (ngSubmit)="onSubmitNew()">
+  <p>
+    <label>Nombre</label>
+    <input class="form-control" type="text" #name="ngModel" name="name" [(ngModel)]="client.name" required />
+    <span *ngIf="!name.valid && name.touched">
+      el nombre es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Apellido</label>
+    <input class="form-control" type="text" #surname="ngModel" name="surname" [(ngModel)]="client.surname" required />
+    <span *ngIf="!surname.valid && surname.touched">
+      el apellido es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Email</label>
+    <input class="form-control" type="email" #email="ngModel" name="email" [(ngModel)]="client.email" required />
+    <span *ngIf="!email.valid && email.touched">
+      el email es obligatorio
+    </span>
+  </p>
+  <p>
+    <label>Teléfono</label>
+    <input class="form-control" type="text" #phone="ngModel" name="phone" [(ngModel)]="client.phone" required />
+    <span *ngIf="!phone.valid && phone.touched">
+      el teléfono es obligatorio
+    </span>
+  </p>
+
+
+  <input class="btn btn-primary btn-lg" type="submit" name="" value="Crear Cliente" [disabled]="!formClient.form.valid"/>
+</form>
+</div>

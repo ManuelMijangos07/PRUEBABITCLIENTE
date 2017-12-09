@@ -1,0 +1,28 @@
+<div class="head-page" *ngIf="identity">
+  <h1>Crear Nuevo Cliente</h1>
+  <a [routerLink]="['/crear-cliente']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default">
+    Añadir Cliente
+  </a>
+
+
+</div>
+<div class="clearfix"></div>
+
+<ul class="clients-list" *ngIf="identity">
+  <li *ngFor="let clients of clients" class="col-lg-3 client-item">
+    <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="C:\xampp\htdocs\curso-mean2\client\src\app\services\logo.png" alt="...">
+      <div class="caption">
+        <h3>{{clients.name}} {{clients.surname}}</h3>
+        <p>Teléfono:{{clients.phone}}</p>
+        <p>Email:{{clients.email}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </li>
+</ul>
